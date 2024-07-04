@@ -1,7 +1,7 @@
 #!/bin/bash
 ID=$(id -u)
 TimeStamp=$(date +%F#%H::%M::%S)
-LogFile=$0-$TimeStamp.log
+LogFile=/tmp/$0-$TimeStamp.log
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -55,7 +55,7 @@ unzip -o /tmp/web.zip
 
 Validate $? "Deployed the downloaded roboshop static code to deployment location"
 
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf 
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf 
 
 systemctl restart nginx &>> $LogFile
 

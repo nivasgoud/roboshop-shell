@@ -23,6 +23,8 @@ do
 
     echo "$i ==:: $IPADDRESS "
 
+
+    #Route 53 Configuration
     aws route53 change-resource-record-sets \
     --hosted-zone-id $ZONEID \
     --change-batch '
@@ -39,6 +41,7 @@ do
             }]
         }
         }]
-    }
-
+    }'
+ 
+    
 done

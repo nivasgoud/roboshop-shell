@@ -17,6 +17,6 @@ do
       INSTANCE_TYPE=t2.micro
    fi
   
-  aws ec2 run-instances --image-id $IMAGEID  --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP --subnet-id $SUBNET --tags Key=Name, Value=$i
+  aws ec2 run-instances --image-id $IMAGEID  --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP --subnet-id $SUBNET --associate-public-ip-address --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
 
 done
